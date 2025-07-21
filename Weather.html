@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=location_on" />
     <style>
         *{
             margin: 0;
@@ -37,6 +38,9 @@ backdrop-filter: blur(1px);
             background-origin: padding-box;
             border-radius: 29px;
             border: 2px solid transparent;
+            transition: 0.25s border;
+            position: relative;
+            margin-bottom: 25px;
         }
         .swam input:hover{
             cursor: pointer;
@@ -45,15 +49,44 @@ backdrop-filter: blur(1px);
         .swam input placeholder{
             color: antiquewhite;
         }
+      
+        .location-date-container{
+           border: solid blueviolet;
+           display: flex;
+           font-size: 12px;
+           justify-content: space-between;
+           align-items: center;
+        }
+        
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
     </style>
 </head>
 <body>
     <div class="card">
         <div class="swam">
             <input type="City choice" placeholder="Search City">
-          
         </div>
-      
+
+        <sec class="locate">
+            <div class="location-date-container">
+  <div class="location">
+    <span class="material-symbols-outlined">
+location_on
+</span>
+<h1 class="country">India</h1>
+<h1 class="date">wed, 07 Aug</h1>
+
+
+  </div>
+            </div>
+        </sec>
     </div>
 </body>
 </html>
