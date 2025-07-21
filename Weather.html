@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins' , sans-serif;
+        }
+        body{
+            background:url(https://canberrayc.com/img/img_weather_headerBG.jpg) no-repeat center center/cover;
+            width: 100%;
+            height: 100vh;
+            backdrop-filter:blur(2px);
+            opacity: .8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card{
+  border: solid rgb(0,0,0,);
+width: 320px;
+height: 499px;
+z-index: 1px;
+background: linear-gradient(to top, rgb(0,0,0,0.15),rgb(255,299,267,0.15));
+border-radius: 12px;
+padding: 20px;
+backdrop-filter: blur(1px);
+        }
+        .swam input{
+            width: 100%;
+            padding: 10px 16px;
+            background-origin: padding-box;
+            border-radius: 29px;
+            border: 2px solid transparent;
+        }
+        .swam input:hover{
+            cursor: pointer;
+            background-color: rgba(61, 53, 53, 0.25);    
+        }
+        .swam input placeholder{
+            color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="swam">
+            <input type="City choice" placeholder="Search City">
+          
+        </div>
+      
+    </div>
+</body>
+</html>
