@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <style>
+        *{
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+            color: white;
+        }
+        main{
+            background-color:  black;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #head{
+            display: flex;
+            width: 235px;
+            margin-bottom: 28px;
+            justify-content: space-between;
+        }
+        #head .player{
+            background-color: black;
+            display: flex;
+            width: 43px;
+            height:43px;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            cursor: pointer;
+            opacity: .8;
+            border-radius: 10px;
+            border: solid white;
+            transition: 0.3s;
+        }
+         #head .player:hover{
+            border: solid 4px #2A2343;
+         }
+          #head #xPlayerDisplay{
+            color: #8e0bf2;
+          }
+           #head #oPlayerDisplay{
+            color: #8e0bf2;
+          }
+          .board{
+  display: grid;
+  grid-template-columns: repeat(3 , 70px);
+  grid-template-rows: repeat(3 , 70px);
+  gap: 15px;
+          }
+          .board .cell{
+            border: solid;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+            font-weight: bolder;
+            cursor: pointer;
+            transition: 0,3s background;
+          }
+          .board .cell:hover{
+            background: #2A2343;
+            border: 2px solid #0ba9f2;
+          }
+          .cl{
+            width: 234px;
+            background: #17122A;
+            margin-top: 22px;
+            padding-top: 12px;
+            padding-bottom: 8px;
+            border-radius: 12px;
+            font-weight: bolder;
+            cursor: pointer;
+          }
+           .cl:hover{
+            background: #08393e;
+          }
+    </style>
+<body>
+    <main>
+        <header id="head">
+            <div class="player"  id="xPlayerDisplay" onclick="choosePlayer('X')">
+               X
+            </div>
+            <h2 id="title">Choose</h2>
+            <div class="player" id="oPlayerDisplay onclick="choosePlayer('O')">
+             O
+            </div>
+        </header>
+        <div class="board">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+        <button class="cl">
+            Restart
+        </button>
+    </main>
+    <script>
+        const board= document.querySelectorAll('.cell')
+        const title=document.querySelector('#title')
+        const xPlayerDisplay= document.querySelector('#xPlayerDisplay')
+         const oPlayerDisplay= document.querySelector('.cl')
+         const cl=document.querySelector('.cl')
+
+
+
+         let player='X'
+         let isPauseGame=false
+         let isGameStart=false
+
+
+         let inputcells=[ ' ' , ' ' , ' ' ,
+                          ' ' , ' ' , ' ' ,
+                          ' ' , ' ' , ' ' ]
+    
+  const WinConditions=[[0,1,2], [3,4,5], [6,7,8] //Rows
+                       [0,3,6], [1,4,7], [2,5,8] //columns
+                       [0,4,8], [2,4,6] //Diagonals
+                    ]
+
+
+            cells.forEach((cell,index)=>{
+                cell.addEventListener('click',()=>tapcells(cell , index))
+            })        
+                       
+      function tapcells(cell , index){
+        if (cell.textContent == '' &&
+            !isPauseGame
+        ){
+            isGameStart=true
+            updatecells(cell, index)
+            if(!checkWinner()){
+                changePlayer()
+            }
+        }
+      }
+      function  updatecells(cell, index){
+      cell.textContent=player
+      inputcells[index]=player
+      console.log(inputcells)
+      }
+         function changePlayer(){
+            player = (player=='X')?'O':'X'
+         }
+  function choosePlayer(selectedPlayers){
+   if(!isGameStart){
+    player=selectedPlayers
+    if(player=='X'){
+        xPlayerDisplay.classList.add('player-active')
+        oPlayerDisplay.classList.remove('player-active')
+    }else{
+         xPlayerDisplay.classList.remove('player-active')
+        oPlayerDisplay.classList.add('player-active')
+    }
+   }
+  }
+         function checkWinner(){
+            for (const [a,b,c] of WinConditions){
+                if(inputcells[a]== player &&)
+                inputcells[b]== player &&
+                inputcells[c]== player 
+            }   {
+                declareWinner([a,b,c])
+                return true
+            }
+         }
+         if (inputcells.every(cell=>cell!='')){
+            declareDraw()
+            return true
+         }
+         function declareWinner(winningIndices){
+ title.textContent=`${player}Win`
+         isPauseGame=true
+  winningIndices.forEach((index)=>
+  cells
+)
+    cl.addEventListener('click', ()=>{
+        inputcells.fill('')
+        cells.foreach(cell,=>{
+            cell.textContext=''
+            cell.style.background=''
+        })
+        isPauseGame=false
+        isGameStart=false
+        title.textContent='Choose'
+    })
+         }
+         
+    </script>
+</body>
+</html>
